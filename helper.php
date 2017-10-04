@@ -91,7 +91,7 @@ class ModDirectioninfoHelper {
 			->leftJoin('#__rw2_directions as `d` ON `d`.`stationID` = `t`.`stationID`')
 			->leftJoin('#__rw2_station_names as `n` ON `n`.`stationID` = `t`.`stationID`')
 			->leftJoin('#__rw2_stations as `s` ON `s`.`id` = `t`.`stationID`')
-			->where("`d`.`directionID` = {$dir} AND `t`.`turnstiles` IS NULL")
+			->where("`d`.`directionID` = {$dir} AND `t`.`turnstiles` IS NULL AND `t`.`tpd` = 0")
 			->order('`d`.`indexID`, `t`.`time_1`')
 		;
 		$db->setQuery($query);
