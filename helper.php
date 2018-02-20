@@ -14,7 +14,7 @@ class ModCoconinfoHelper {
 			->select('`dir`.`title`')
 			->from('#__rw2_direction_info as `i`')
 			->leftJoin('#__rw2_directions_list as `dir` ON `dir`.`id` = `i`.`directionID`')
-			->where("`i`.`cocon` = 1 AND `dir`.`active` = 1");
+			->where("`i`.`cocon` = 1 AND `dir`.`state` > 0");
 		$db->setQuery($query);
 		$res = $db->loadObjectList();
 		$result = array();
